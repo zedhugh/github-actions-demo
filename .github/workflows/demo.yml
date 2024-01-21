@@ -25,16 +25,21 @@ jobs:
         run: ls -lh out
       - name: show out/index.js file content
         run: cat out/index.js
+      - run: pwd
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     if: ${{ success() }}
+    permissions:
+      contents: write
     steps:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: out
           publish_branch: release
           commit_message: ${{ github.event.head_commit.message }}
+          user_name: "Zedhugh Chen"
+          user_email: "zedhugh@gmail.com"

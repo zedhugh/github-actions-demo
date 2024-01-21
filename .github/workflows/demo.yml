@@ -35,7 +35,7 @@ jobs:
       contents: write
     steps:
       - run: pwd
-      - run: ls
+      - run: ls -lha
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

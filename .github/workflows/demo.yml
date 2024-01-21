@@ -22,7 +22,7 @@ jobs:
       - name: compile ts file
         run: tsc -p tsconfig.json
       - name: list output files
-        run: ls -lh out
+        run: ls -lh
       - name: show out/index.js file content
         run: cat out/index.js
       - run: pwd

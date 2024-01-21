@@ -13,6 +13,8 @@ jobs:
           node-version: 20
       - name: enable pnpm
         run: corepack enable pnpm
+      - name: pnpm version
+        run: pnpm -v
       - name: install dependencies
         run: pnpm i
       - name: compile ts file

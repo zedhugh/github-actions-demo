@@ -1,7 +1,9 @@
 name: github-actions-demo
 on:
-  - push
   - workflow_dispatch
+  - push:
+      branches:
+        main
 
 jobs:
   build:
@@ -23,3 +25,16 @@ jobs:
         run: ls -lh out
       - name: show out/index.js file content
         run: cat out/index.js
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ success() }}
+    steps:
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: release
+          commit_message: ${{ github.event.head_commit.message }}

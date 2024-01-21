@@ -1,11 +1,13 @@
 name: github-actions-demo
-on: workflow_dispatch
+on:
+  push
+  workflow_dispatch
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v4
       - name: enable pnpm
         run: corepack enable pnpm
       - name: install dependencies

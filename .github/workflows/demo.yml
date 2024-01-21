@@ -26,18 +26,10 @@ jobs:
       - name: show out/index.js file content
         run: cat out/index.js
       - run: pwd
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: ${{ success() }}
-    permissions:
-      contents: write
-    steps:
-      - run: pwd
-      - run: ls -lha
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        permissions:
+          contents: write
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: out

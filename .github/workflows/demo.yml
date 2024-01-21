@@ -1,0 +1,9 @@
+name: github-actions-demo
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install dependencies
+        run: pnpm i

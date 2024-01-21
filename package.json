@@ -1,0 +1,15 @@
+{
+  "name": "github-actions-demo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "github actions demo",
+  "packageManager": "pnpm@8.14.1",
+  "devDependencies": {
+    "@eslint/js": "^8.56.0",
+    "@types/eslint": "^8.56.2",
+    "@types/node": "^20.11.5",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  }
+}

@@ -15,3 +15,9 @@ jobs:
         run: corepack enable pnpm
       - name: install dependencies
         run: pnpm i
+      - name: compile ts file
+        run: tsc -p tsconfig.json
+      - name: list output files
+        run: ls -lh out
+      - name: show out/index.js file content
+        run: cat out/index.js
